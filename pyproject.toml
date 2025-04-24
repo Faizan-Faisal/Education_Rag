@@ -1,0 +1,27 @@
+[project]
+name = "crewai_rag"
+version = "0.1.0"
+description = "CrewAI_Rag using crewAI"
+authors = [{ name = "Your Name", email = "you@example.com" }]
+requires-python = ">=3.10,<3.13"
+dependencies = [
+    "crewai[tools]>=0.108.0,<1.0.0",
+    "langchain>=0.3.23",
+    "pinecone>=6.0.2",
+    "pymupdf>=1.25.5",
+    "sentence-transformers>=4.1.0",
+    "uuid>=1.30",
+]
+
+[project.scripts]
+kickoff = "crewai_rag.main:kickoff"
+store = "crewai_rag.main: store"
+retrieve = "crewai_rag.main: retrieve"
+plot = "crewai_rag.main:plot"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.crewai]
+type = "flow"

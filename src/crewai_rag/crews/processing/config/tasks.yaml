@@ -1,0 +1,34 @@
+Read_pdf:
+  description: >
+    Read the pdf "{pdf}" and extract text from it.
+  expected_output: >
+    An text extracted from the pdf "{pdf}"
+  agent: Pdf_reader
+
+Text_preprocessing:  
+  description: >
+    Preprocess the raw text extracted from the PDF to make it clean and structured.
+  expected_output: >
+    Well-formatted and clean text data ready for semantic chunking.
+  agent: Text_preprocesser
+
+Text_chunking:  
+  description: >
+    Apply semantic chunking on the cleaned and structured text to break it into meaningful segments.
+  expected_output: >
+    A list of well-segmented and contextually meaningful chunks suitable for embedding.
+  agent: Text_Chunker
+
+Text_Embedding:
+  description: >
+    Generate vector embeddings from the semantic chunks.
+  expected_output: >
+    A list of vector embeddings to be stored in the Pinecone vector database.
+  agent: Text_Embedder
+
+Storing_Vectors:
+  description: >
+    Store vector embeddings in Pinecone for later semantic retrieval also store the subject "{subject} in the namespace".
+  expected_output: >
+    Vector embeddings successfully stored in the Pinecone vector database.
+  agent: Vector_Store
